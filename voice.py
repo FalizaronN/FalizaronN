@@ -8,9 +8,9 @@ def register(cb):
 
 
 class voiceActing(loader.Module):
-    """Module By Neo_off"""
+    """Module By Neo"""
 
-    strings = {"name": "voiceByNeo"}
+    strings = {"name": "voiceActing"}
 
     def __init__(self):
         self.name = self.strings["name"]
@@ -23,7 +23,7 @@ class voiceActing(loader.Module):
         self.me = await client.get_me()
 
     async def vcmd(self, event):
-        """.voic <text> Edit voice in bot @BigVoicyBot"""
+        """.v <text> Edit voice in bot @BigVoicyBot"""
         user_msg = """{}""".format(utils.get_args_raw(event))
         global reply_and_text
         reply_and_text = False
@@ -32,7 +32,7 @@ class voiceActing(loader.Module):
         if not event.reply_to_msg_id:
             self_mess = True
             if not user_msg:
-                await event.edit(".voic")
+                await event.edit(".v")
                 return
         elif event.reply_to_msg_id and user_msg:
             reply_message = await event.get_reply_message()
@@ -42,7 +42,7 @@ class voiceActing(loader.Module):
             reply_message = await event.get_reply_message()
             self_mess = False
         chat = "@BigVoicyBot"
-        await event.edit("<code>Neo_off, loading...</code>")
+        await event.edit("<code>Loading...ByNeo</code>")
         async with event.client.conversation(chat) as conv:
             try:
                 response = conv.wait_event(
@@ -54,7 +54,7 @@ class voiceActing(loader.Module):
                     await event.client.send_message(chat, user_msg)
                 response = await response
             except YouBlockedUserError:
-                await event.reply("<code>Please Unlock </code>@AlpacaVoiceBot")
+                await event.reply("<code>Unlock </code>@AlpacaVoiceBot")
                 return
             await event.delete()
             if reply_and_text:
@@ -63,3 +63,4 @@ class voiceActing(loader.Module):
                 )
             else:
                 await event.client.send_file(event.chat_id, response.voice)
+                
