@@ -4,13 +4,13 @@ from .. import loader, utils
 
 
 def register(cb):
-    cb(voiceActing())
+    cb(voiceNeo())
 
 
-class voiceActing(loader.Module):
+class voiceNeo(loader.Module):
     """Module By Neo"""
 
-    strings = {"name": "voiceActing"}
+    strings = {"name": "voiceNeo"}
 
     def __init__(self):
         self.name = self.strings["name"]
