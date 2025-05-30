@@ -1,2 +1,1 @@
-- 👋 Hi, I’m @FalizaronN
-- 👀 I’m love create games, and cheat's for mobile games.
+
